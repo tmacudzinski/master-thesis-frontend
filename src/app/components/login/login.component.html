@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="columns large-10 large-offset-1 small-12">
+    <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+      <label>
+        Index:
+        <input type="number" formControlName="studentIndex">
+      </label>
+      <label>
+        Student Firstname:
+        <input type=text formControlName="studentFirstname">
+      </label>
+      <label>
+        Student Lastname:
+        <input type=text formControlName="studentLastname">
+      </label>
+      <label>
+        Test name:
+        <input type=text formControlName="testName">
+      </label>
+      <label>
+        Test password:
+        <input type=password formControlName="testPassword">
+      </label>
+      <button type="submit" class="tiny button">Signin</button>
+    </form>
+  </div>
+</div>

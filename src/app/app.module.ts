@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
-import { LoginComponent } from './login/login.component';
-import {Route, RouterModule} from '@angular/router';
-import {ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { Route, RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ApiService } from './services/api.service';
+import { TestComponent } from './components/test/test.component';
 
 export const routes: Route[] = [
   {
@@ -17,13 +19,18 @@ export const routes: Route[] = [
   {
     path: 'home',
     component: AppComponent
+  },
+  {
+    path: 'test',
+    component: TestComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,7 @@ export const routes: Route[] = [
     RouterModule.forRoot(routes),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
