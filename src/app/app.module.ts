@@ -9,6 +9,7 @@ import { Route, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from './services/api.service';
 import { TestComponent } from './components/test/test.component';
+import { TestsListComponent } from './components/tests-list/tests-list.component';
 
 export const routes: Route[] = [
   {
@@ -30,7 +31,8 @@ export const routes: Route[] = [
   declarations: [
     AppComponent,
     LoginComponent,
-    TestComponent
+    TestComponent,
+    TestsListComponent
   ],
   imports: [
     BrowserModule,

@@ -21,8 +21,8 @@ export class ApiService {
     );
   }
 
-  getDrawnQuestions(): Observable<Test> {
+  getTests(): Observable<Array<Test>> {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
-    return this.http.get(`${environment.baseUrl}/drawnQuestions`, {headers});
+    return this.http.get<Array<Test>>(`${environment.baseUrl}/tests`, {headers});
   }
 }

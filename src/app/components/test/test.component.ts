@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Test} from '../../models/test';
 import {ApiService} from '../../services/api.service';
 
@@ -8,19 +8,10 @@ import {ApiService} from '../../services/api.service';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-  private test: Test;
 
-  constructor(private apiService: ApiService) {
-    apiService.getDrawnQuestions().subscribe(
-      (drawnQuestions: Test) => {
-        this.test = drawnQuestions;
-      },
-      (error) => {
-        /* blad pobierania testu */
-        console.log(error);
-      }
-    );
-  }
+  @Input() test: Test;
+
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
   }
