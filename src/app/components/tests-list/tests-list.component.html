@@ -1,5 +1,19 @@
-<ul id="testslist">
+<div class="container">
+  <h1>Testy</h1>
+  <div class="row">
+    <div class="col-md-6">Nazwa testu</div>
+    <div class="col-md-6">Liczba pytań</div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">Przykładowa nazwa</div>
+    <div class="col-md-6">30</div>
+  </div>
+  <div class="row" *ngFor="let test of tests">
+    <div class="col-md-6">{{test.name}}</div>
+    <div class="col-md-6">{{test.questions.length}}</div>
+  </div>
+  <div class="row justify-content-end">
+    <button class="btn btn-primary">Dodaj nowy test</button>
+  </div>
+</div>
 
-  <li class="testclass" *ngFor="let test of tests"><app-test [test]="test"></app-test></li>
-
-</ul>
