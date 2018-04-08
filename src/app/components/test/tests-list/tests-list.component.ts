@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiService} from '../../services/api.service';
-import {Test} from '../../models/test';
+import {ApiService} from '../../../services/api.service';
+import {Test} from '../../../models/test';
 
 @Component({
   selector: 'app-tests-list',

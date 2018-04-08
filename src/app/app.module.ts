@@ -8,22 +8,41 @@ import { LoginComponent } from './components/login/login.component';
 import { Route, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from './services/api.service';
-import { TestComponent } from './components/test/test.component';
-import { TestsListComponent } from './components/tests-list/tests-list.component';
+import { TestsListComponent } from './components/test/tests-list/tests-list.component';
+import { TestCreateComponent } from './components/test/test-create/test-create.component';
+import { TestEditComponent } from './components/test/test-edit/test-edit.component';
+import { TestDetailsComponent } from './components/test/test-details/test-details.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Route[] = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/home'
+    redirectTo: '/login'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'home',
-    component: AppComponent
+    component: HomeComponent
   },
   {
-    path: 'test',
-    component: TestComponent
+    path: 'testCreate',
+    component: TestCreateComponent
+  },
+  {
+    path: 'testEdit/:id',
+    component: TestEditComponent
+  },
+  {
+    path: 'testsList',
+    component: TestsListComponent
+  },
+  {
+    path: 'testDetails/:id',
+    component: TestDetailsComponent
   }
 ];
 
@@ -31,8 +50,11 @@ export const routes: Route[] = [
   declarations: [
     AppComponent,
     LoginComponent,
-    TestComponent,
-    TestsListComponent
+    TestsListComponent,
+    TestCreateComponent,
+    TestEditComponent,
+    TestDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

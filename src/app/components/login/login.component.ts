@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {StudentLoginDetails} from '../../models/student-login-details';
 import {ApiService} from '../../services/api.service';
 import {Router} from '@angular/router';
 
@@ -17,27 +16,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      studentIndex: ['', []],
-      studentFirstname: ['', []],
-      studentLastname: ['', []],
-      testName: ['', []],
-      testPassword: ['', []]
+      username: ['', []],
+      password: ['', []]
     });
   }
 
   submitLogin() {
-    const studentLoginDetails: StudentLoginDetails = new StudentLoginDetails(
-      this.loginForm.value.studentIndex,
-      this.loginForm.value.studentFirstname, this.loginForm.value.studentLastname,
-      this.loginForm.value.testName, this.loginForm.value.testPassword);
-
-    try {
-      this.apiService.loginStudent(studentLoginDetails);
-      /* udane logowanie */
-      this.router.navigate(['/test']);
-    } catch (e) {
-      /* blad uwierzytelniania */
-      console.log(e);
-    }
+    this.apiService.login(this.loginForm.value.username, this.loginForm.value.password)
+      .subscribe(() => this.router.navigate(['/home']), error => console.log(error));
   }
 }
